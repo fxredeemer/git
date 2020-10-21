@@ -1339,6 +1339,7 @@ sub _temp_cache {
 
 		my $n = $name;
 		$n =~ s/\W/_/g; # no strange chars
+		$n = substr($n, 32); # fix issue with too long file path in git svn
 
 		($$temp_fd, $fname) = File::Temp::tempfile(
 			"Git_${n}_XXXXXX", UNLINK => 1, DIR => $tmpdir,
