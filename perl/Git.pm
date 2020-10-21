@@ -1337,12 +1337,8 @@ sub _temp_cache {
 			$tmpdir = $self->repo_path();
 		}
 
-		my $n = $name;
-		$n =~ s/\W/_/g; # no strange chars
-		$n = substr($n, 32); # fix issue with too long file path in git svn
-
 		($$temp_fd, $fname) = File::Temp::tempfile(
-			"Git_${n}_XXXXXX", UNLINK => 1, DIR => $tmpdir,
+			"Git_TEMP_XXXXXXXXXXXX", UNLINK => 1, DIR => $tmpdir,
 			) or throw Error::Simple("couldn't open new temp file");
 
 		$$temp_fd->autoflush;
