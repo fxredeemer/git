@@ -159,7 +159,7 @@ sub git_path {
 	}
 	if ($self->{path_strip}) {
 		$path =~ s!$self->{path_strip}!! or
-		  die "Failed to strip path '$path' ($self->{path_strip})\n";
+		  print "Failed to strip path '$path' ($self->{path_strip})\n";
 	}
 	$path;
 }
